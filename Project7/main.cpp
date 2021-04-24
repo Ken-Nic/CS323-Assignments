@@ -122,7 +122,7 @@ class PrimMST
 
     void printMSTList(ofstream & out)
     {
-        uEdge * runner = MSTlistHead;
+        uEdge * runner = MSTlistHead->next;
         while(runner != NULL)
         {
             runner->printEdge(out);
@@ -167,12 +167,12 @@ int main (int argc, const char * argv[])
     // Step 0
     ofstream debug,MSTfile;
     ifstream infile;
-    infile.open("in2.txt");
-    debug.open("Out.txt");
-    MSTfile.open("MSTfile.txt");
+    infile.open(argv[1]);
+    debug.open(argv[4]);
+    MSTfile.open(argv[3]);
     int numNodes;
     infile >> numNodes;
-    int nodeInSetA = 4;
+    int nodeInSetA = atoi(argv[2]);
     PrimMST * tree = new PrimMST(numNodes,nodeInSetA);
     tree->getSet()[nodeInSetA] = 1;
     tree->printSet(debug);
