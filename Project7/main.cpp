@@ -112,6 +112,7 @@ class PrimMST
     void printEdgeList(ofstream & out)
     {
         uEdge * runner = edgelistHead;
+        out<<"MSTListHead->";
         while(runner != NULL)
         {
             runner->printEdge(out);
@@ -122,7 +123,8 @@ class PrimMST
 
     void printMSTList(ofstream & out)
     {
-        uEdge * runner = MSTlistHead->next;
+        uEdge * runner = MSTlistHead;
+        out<<"MSTListHead->";
         while(runner != NULL)
         {
             runner->printEdge(out);
@@ -217,7 +219,7 @@ int main (int argc, const char * argv[])
 
 
     // Step 10
-    MSTfile << "*** Prim's MST of the input graph, G is:***\n"<<"NumNodes: "<<numNodes << "\n";
+    MSTfile << "*** Prim's MST of the input graph, G is:***\n"<<numNodes << "\n";
     tree->printMSTList(MSTfile);
     MSTfile<<"NULL";
     MSTfile << "\n ***MST total cost= " <<tree->getTotalMSTCost();
